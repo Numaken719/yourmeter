@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_074026) do
 
   create_table "meters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.text "description"
+    t.text "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
