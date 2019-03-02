@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'meters' => 'meters#index'
   get 'meters/new' => 'meters#new'
   post 'meters' => 'meters#create'
+  get 'users/:id' => 'users#show'
 end

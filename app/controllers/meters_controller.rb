@@ -1,6 +1,6 @@
 class MetersController < ApplicationController
   
-  
+  before_action :move_to_index, except: :index
 
   def index
     @meters = Meter.all.order("created_at DESC")
@@ -10,7 +10,7 @@ class MetersController < ApplicationController
   end
   
   def create
-    Meter.create(meter_params)
+    Meter.create(title: meter_params[:name], text: meter_params[:text], user_id: current_user.id)
   end
   
   private
@@ -18,4 +18,7 @@ class MetersController < ApplicationController
     params.permit(:title, :text)
   end
   
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
